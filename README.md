@@ -45,4 +45,4 @@ virtual-pet-simulator/
 │   └── error.mp3
 └── README.md
 
-## Demo: 
+## Demo: https://noorfathima0.github.io/Pet-simulator/
