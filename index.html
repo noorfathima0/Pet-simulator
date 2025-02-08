@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pet Simulator</title>
+    <link rel="stylesheet" href="style.css">
+        <!-- Add this to the head section -->
+    <audio id="feed-sound" src="feed.mp3"></audio>
+    <audio id="play-sound" src="play.mp3"></audio>
+    <audio id="sleep-sound" src="sleep.mp3"></audio>
+    <audio id="error-sound" src="error.mp3"></audio>
+</head>
+<body>
+    <div class="container">
+        <h1>My Pet 🐾</h1>
+        
+        <!-- Animated Pet -->
+        <div id="pet" class="pet">
+            <div class="pet-body"></div>
+            <div class="pet-face">
+                <div class="pet-eye left"></div>
+                <div class="pet-eye right"></div>
+                <div class="pet-mouth"></div>
+            </div>
+            <div class="pet-tail"></div>
+            <div class="zzz">💤</div>
+        </div>
+        
+        <!-- Status Bars -->
+        <div class="status-bars">
+            <div class="stat">
+                <span>🍔 Hunger:</span>
+                <div class="bar"><div class="fill hunger"></div></div>
+            </div>
+            <div class="stat">
+                <span>🎉 Happiness:</span>
+                <div class="bar"><div class="fill happiness"></div></div>
+            </div>
+            <div class="stat">
+                <span>⚡ Energy:</span>
+                <div class="bar"><div class="fill energy"></div></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="feed">Feed</button>
+            <button id="play">Play</button>
+            <button id="sleep">Sleep</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

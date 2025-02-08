@@ -1,0 +1,261 @@
+body {
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    background: #FFEEDD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Pet Base Styling */
+.pet {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+}
+
+.pet-body {
+    position: absolute;
+    width: 120px;
+    height: 150px;
+    background: #FFB347;
+    border-radius: 50% 50% 40% 40%;
+    bottom: 20px;
+    left: 40px;
+    transition: all 0.3s ease;
+}
+
+.pet-face {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    top: 40px;
+    left: 60px;
+}
+
+.pet-eye {
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    top: 15px;
+    animation: blink 3s infinite;
+}
+
+.pet-eye.left { left: 10px; }
+.pet-eye.right { right: 10px; }
+
+.pet-mouth {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    border: 3px solid #333;
+    border-radius: 0 0 30px 30px;
+    border-top: 0;
+    bottom: 5px;
+    left: 25px;
+    transition: all 0.3s ease;
+}
+
+.pet-tail {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: #FFB347;
+    right: 20px;
+    bottom: 80px;
+    border-radius: 20px 0 0 20px;
+    transform-origin: right center;
+    animation: tailWag 1.5s infinite alternate;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes tailWag {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-30deg); }
+}
+
+@keyframes blink {
+    0%, 100% { height: 20px; }
+    50% { height: 5px; }
+}
+
+@keyframes zzz {
+    0% { opacity: 0; transform: translateY(0); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-50px); }
+}
+
+/* State-based Animations */
+.pet.happy .pet-body {
+    animation: bounce 0.8s ease infinite;
+}
+
+.pet.hungry .pet-mouth {
+    width: 40px;
+    border-radius: 50%;
+    height: 20px;
+    bottom: 0;
+}
+
+.pet.tired .pet-body {
+    transform: scale(0.9) translateY(20px);
+}
+
+.pet.tired .pet-eye {
+    height: 5px;
+}
+
+.pet.sleeping {
+    animation: none !important;
+}
+
+.pet.sleeping .pet-eye {
+    height: 5px;
+}
+
+.pet.sleeping .pet-mouth {
+    opacity: 0;
+}
+
+.zzz {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    font-size: 24px;
+    opacity: 0;
+}
+
+.sleeping .zzz {
+    animation: zzz 2s infinite;
+}
+
+/* Status Bars and Controls (unchanged) */
+.status-bars {
+    margin: 1.5rem 0;
+}
+
+.stat {
+    margin: 1rem 0;
+}
+
+.bar {
+    background: #eee;
+    border-radius: 10px;
+    height: 20px;
+    width: 300px;
+    margin: 0.5rem auto;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+.hunger { background: #FF6B6B; }
+.happiness { background: #4ECDC4; }
+.energy { background: #FFD93D; }
+
+.controls button {
+    padding: 12px 24px;
+    margin: 0 8px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#feed { background: #FF6B6B; color: white; }
+#play { background: #4ECDC4; color: white; }
+#sleep { background: #FFD93D; color: black; }
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Particle Effects */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FF6B6B;
+    border-radius: 50%;
+    animation: float 1s ease-out;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.5);
+    }
+}
+
+/* Feed Particles */
+.feed-particle {
+    background: #FF6B6B; /* Red for food */
+}
+
+/* Play Particles */
+.play-particle {
+    background: #4ECDC4; /* Teal for play */
+}
+
+/* Sleep Particles */
+.sleep-particle {
+    background: #FFD93D; /* Yellow for sleep */
+}
+
+/* Eating Animation */
+.eating .pet-mouth {
+    animation: chew 0.5s infinite;
+}
+
+@keyframes chew {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* Sleeping Animation */
+.sleeping .pet-eye {
+    height: 5px;
+    animation: none;
+}
+
+.sleeping .pet-mouth {
+    opacity: 0;
+}
+
+/* Playing Animation */
+.playing .pet-body {
+    animation: jump 0.5s infinite;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
